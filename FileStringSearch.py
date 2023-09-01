@@ -21,12 +21,6 @@ def map_file_system(start_dir, find_str):
     if (len(filepaths) == 0):
         filepaths.append("No matches found")
 
-    print(filepaths)
-    """
-    for entry in filepaths:
-        entry = entry.encode().decode('unicode_escape')
-    """
-
     result = tk.Tk()
     label = tk.Text(result)
     label.pack()
@@ -37,16 +31,6 @@ def map_file_system(start_dir, find_str):
     result.mainloop()
 
 if __name__ == "__main__":
-
-    """
-    start_dir = input(r"Starting Directory: ")
-    
-    find_str = input("String to find: ")
-
-    print(start_dir)
-
-    map_file_system(start_dir, find_str)
-    """
 
     root = tk.Tk()
 
