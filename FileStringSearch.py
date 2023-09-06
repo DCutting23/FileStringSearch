@@ -1,6 +1,7 @@
 import os
 import tkinter as tk
 import codecs
+import docx2txt
 
 def map_file_system(start_dir, find_str):
 
@@ -17,6 +18,11 @@ def map_file_system(start_dir, find_str):
                 contents = file.read()
                 if(find_str in contents):
                     filepaths.append(filepath)
+            elif(".docx" in filepath):
+                wordfile = docx2txt.process(filepath)
+                if(find_str in wordfile):
+                    filepaths.append(filepath)
+
 
     if (len(filepaths) == 0):
         filepaths.append("No matches found")
