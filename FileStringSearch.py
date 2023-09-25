@@ -2,6 +2,7 @@ import os
 import tkinter as tk
 import codecs
 import docx2txt
+import PyPDF2
 
 def map_file_system(start_dir, find_str):
 
@@ -22,6 +23,14 @@ def map_file_system(start_dir, find_str):
                 wordfile = docx2txt.process(filepath)
                 if(find_str in wordfile):
                     filepaths.append(filepath)
+            elif(".pdf" in filepath):
+                pdffile = PyPDF2.PdfReader(filepath)
+                print(pdffile)
+                page = pdffile.pages[0]
+                pagetext = page.extract_text()
+                if(find_str in pagetext):
+                    filepaths.append(filepath)
+
 
 
     if (len(filepaths) == 0):
