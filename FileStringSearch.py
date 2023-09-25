@@ -26,10 +26,10 @@ def map_file_system(start_dir, find_str):
             elif(".pdf" in filepath):
                 pdffile = PyPDF2.PdfReader(filepath)
                 print(pdffile)
-                page = pdffile.pages[0]
-                pagetext = page.extract_text()
-                if(find_str in pagetext):
-                    filepaths.append(filepath)
+                for page in pdffile.pages:
+                    pagetext = page.extract_text()
+                    if(find_str in pagetext):
+                        filepaths.append(filepath)
 
 
 
